@@ -1,4 +1,4 @@
-grammar MSSQL;
+grammar MSSQLCheck;
 
 // Version: 0.8
 // ANTLR Version: 2.7.2
@@ -13,15 +13,262 @@ grammar MSSQL;
 // http://jastrzebski.europe.webmatrixhosting.net/mssqlparser.aspx 
 
 options {
-    // language = "CSharp";
-}
-
-// PARSER ********************************************************************************
-
-// class SqlParser extends Parser;
-options {
+    //testLiterals = false;
     k = 2;
+    //caseSensitive = false;
+    //caseSensitiveLiterals = false;
 }
+
+tokens {
+    ADD = 'add' ;
+    ALL = 'all' ;
+    ALTER = 'alter' ;
+    AND = 'and' ;
+    ANY = 'any' ;
+    AS = 'as' ;
+    ASC = 'asc' ;
+    AUTHORIZATION = 'authorization' ;
+    AUTO = 'auto' ;
+    BACKUP = 'backup' ;
+    BASE64 = 'base64' ;
+    BEGIN = 'begin' ;
+    BETWEEN = 'between' ;
+    BINARY = 'binary' ;
+    BREAK = 'break' ;
+    BROWSE = 'browse' ;
+    BULK = 'bulk' ;
+    BY = 'by' ;
+    CASCADE = 'cascade' ;
+    CASE = 'case' ;
+    CAST = 'cast' ;
+    CHECK = 'check' ;
+    CHECKPOINT = 'checkpoint' ;
+    CLOSE = 'close' ;
+    CLUSTERED = 'clustered' ;
+    // COALESCE = 'coalesce' ;
+    COLLATE = 'collate' ;
+    COLUMN = 'column' ;
+    COMMIT = 'commit' ;
+    COMPUTE = 'compute' ;
+    CONCAT = 'concat' ;
+    CONSTRAINT = 'constraint' ;
+    CONTAINS = 'contains' ;
+    CONTAINSTABLE = 'containstable' ;
+    CONTINUE = 'continue' ;
+    // CONVERT = 'convert' ;
+    CREATE = 'create' ;
+    CROSS = 'cross' ;
+    CUBE = 'cube' ;
+    CURRENT = 'current' ;
+    CURRENT_DATE = 'current_date' ;
+    CURRENT_TIME = 'current_time' ;
+    CURRENT_TIMESTAMP = 'current_timestamp' ;
+    CURRENT_USER = 'current_user' ;
+    CURSOR = 'cursor' ;
+    DATABASE = 'database' ;
+    DBCC = 'dbcc' ;
+    DEALLOCATE = 'deallocate' ;
+    DECLARE = 'declare' ;
+    DEFAULT = 'default' ;
+    DELETE = 'delete' ;
+    DENY = 'deny' ;
+    DESC = 'desc' ;
+    DISK = 'disk' ;
+    DISTINCT = 'distinct' ;
+    DISTRIBUTED = 'distributed' ;
+    DOUBLE = 'double' ;
+    DROP = 'drop' ;
+    // DUMMY = 'dummy' ;
+    DUMP = 'dump' ;
+    ELEMENTS = 'elements' ;
+    ELSE = 'else' ;
+    END = 'end' ;
+    ERRLVL = 'errlvl' ;
+    ESCAPE = 'escape' ;
+    EXCEPT = 'except' ;
+    EXEC = 'exec' ;
+    EXECUTE = 'execute' ;
+    EXISTS = 'exists' ;
+    EXIT = 'exit' ;
+    EXPAND = 'expand' ;
+    EXPLICIT = 'explicit' ;
+    FAST = 'fast' ;
+    FASTFIRSTROW = 'fastfirstrow' ;
+    FETCH = 'fetch' ;
+    FILE = 'file' ;
+    FILLFACTOR = 'fillfactor' ;
+    FOR = 'for' ;
+    FORCE = 'force' ;
+    FOREIGN = 'foreign' ;
+    FREETEXT = 'freetext' ;
+    FREETEXTTABLE = 'freetexttable' ;
+    FROM = 'from' ;
+    FULL = 'full' ;
+    FUNCTION = 'function' ;
+    GOTO = 'goto' ;
+    GRANT = 'grant' ;
+    GROUP = 'group' ;
+    HASH = 'hash' ;
+    HAVING = 'having' ;
+    HOLDLOCK = 'holdlock' ;
+    IDENTITY = 'identity' ;
+    IDENTITY_INSERT = 'identity_insert' ;
+    IDENTITYCOL = 'identitycol' ;
+    IF = 'if' ;
+    IN = 'in' ;
+    INDEX = 'index' ;
+    INNER = 'inner' ;
+    INSERT = 'insert' ;
+    INTERSECT = 'intersect' ;
+    INTO = 'into' ;
+    IS = 'is' ;
+    JOIN = 'join' ;
+    KEEP = 'keep' ;
+    KEEPFIXED = 'keepfixed' ;
+    KEY = 'key' ;
+    KILL = 'kill' ;
+    LEFT = 'left' ;
+    LIKE = 'like' ;
+    LINENO = 'lineno' ;
+    LOAD = 'load' ;
+    LOOP = 'loop' ;
+    MAXDOP = 'maxdop' ;
+    MERGE = 'merge' ;
+    NATIONAL = 'national' ;
+    NOCHECK = 'nocheck' ;
+    NOLOCK = 'nolock' ;
+    NONCLUSTERED = 'nonclustered' ;
+    NOT = 'not' ;
+    NULL = 'null' ;
+    // NULLIF = 'nullif' ;
+    OF = 'of' ;
+    OFF = 'off' ;
+    OFFSETS = 'offsets' ;
+    ON = 'on' ;
+    OPEN = 'open' ;
+    OPENDATASOURCE = 'opendatasource' ;
+    OPENQUERY = 'openquery' ;
+    OPENROWSET = 'openrowset' ;
+    OPENXML = 'openxml' ;
+    OPTION = 'option' ;
+    OR = 'or' ;
+    ORDER = 'order' ;
+    OUTER = 'outer' ;
+    OVER = 'over' ;
+    PAGLOCK = 'paglock' ;
+    PERCENT = 'percent' ;
+    PLAN = 'plan' ;
+    PRECISION = 'precision' ;
+    PRIMARY = 'primary' ;
+    PRINT = 'print' ;
+    PROC = 'proc' ;
+    PROCEDURE = 'procedure' ;
+    PUBLIC = 'public' ;
+    RAISERROR = 'raiserror' ;
+    RAW = 'raw' ;
+    READ = 'read' ;
+    READCOMMITED = 'readcommited' ;
+    READPAST = 'readpast' ;
+    READTEXT = 'readtext' ;
+    READUNCOMMITED = 'readuncommited' ;
+    RECONFIGURE = 'reconfigure' ;
+    REFERENCES = 'references' ;
+    REMOTE = 'remote' ;
+    REPEATABLEREAD = 'repeatableread' ;
+    REPLICATION = 'replication' ;
+    RESTORE = 'restore' ;
+    RESTRICT = 'restrict' ;
+    RETURN = 'return' ;
+    REVOKE = 'revoke' ;
+    RIGHT = 'right' ;
+    ROBUST = 'robust' ;
+    ROLLBACK = 'rollback' ;
+    ROLLUP = 'rollup' ;
+    ROWCOUNT = 'rowcount' ;
+    ROWGUIDCOL = 'rowguidcol' ;
+    ROWLOCK = 'rowlock' ;
+    RULE = 'rule' ;
+    SAVE = 'save' ;
+    SCHEMA = 'schema' ;
+    SELECT = 'select' ;
+    SERIALIZABLE = 'serializable' ;
+    SESSION_USER = 'session_user' ;
+    SET = 'set' ;
+    SETUSER = 'setuser' ;
+    SHUTDOWN = 'shutdown' ;
+    SOME = 'some' ;
+    STATISTICS = 'statistics' ;
+    SYSTEM_USER = 'system_user' ;
+    TABLE = 'table' ;
+    TABLOCK = 'tablock' ;
+    TABLOCKX = 'tablockx' ;
+    TEXTSIZE = 'textsize' ;
+    THEN = 'then' ;
+    TIES = 'ties' ;
+    TO = 'to' ;
+    TOP = 'top' ;
+    TRAN = 'tran' ;
+    TRANSACTION = 'transaction' ;
+    TRIGGER = 'trigger' ;
+    TRUNCATE = 'truncate' ;
+    TSEQUAL = 'tsequal' ;
+    UNION = 'union' ;
+    UNIQUE = 'unique' ;
+    UPDATE = 'update' ;
+    UPDATETEXT = 'updatetext' ;
+    UPDLOCK = 'updlock' ;
+    USE = 'use' ;
+    USER = 'user' ;
+    VALUES = 'values' ;
+    VARYING = 'varying' ;
+    VIEW = 'view' ;
+    VIEWS = 'views' ;
+    WAITFOR = 'waitfor' ;
+    WHEN = 'when' ;
+    WHERE = 'where' ;
+    WHILE = 'while' ;
+    WITH = 'with' ;
+    WRITETEXT = 'writetext' ;
+    XLOCK = 'xlock' ;
+    XML = 'xml' ;
+    XMLDATA = 'xmldata' ;
+    
+    // system variables
+    F_CONNECTIONS = '@@connections' ;
+    F_CPU_BUSY = '@@cpu_busy' ;
+    F_CURSOR_ROWS = '@@cursor_rows' ;
+    F_DATEFIRST = '@@datefirst' ;
+    F_DBTS = '@@dbts' ;
+    F_ERROR = '@@error' ;
+    F_FETCH_STATUS = '@@fetch_status' ;
+    F_IDENTITY = '@@identity' ;
+    F_IDLE = '@@idle' ;
+    F_IO_BUSY = '@@io_busy' ;
+    F_LANGID = '@@langid' ;
+    F_LANGUAGE = '@@language' ;
+    F_LOCK_TIMEOUT = '@@lock_timeout' ;
+    F_MAX_CONNECTIONS = '@@max_connections' ;
+    F_MAX_PRECISION = '@@max_precision' ;
+    F_NESTLEVEL = '@@nestlevel' ;
+    F_OPTIONS = '@@options' ;
+    F_PACK_RECEIVED = '@@pack_received' ;
+    F_PACK_SENT = '@@pack_sent' ;
+    F_PACKET_ERRORS = '@@packet_errors' ;
+    F_PROCID = '@@procid' ;
+    F_REMSERVER = '@@remserver' ;
+    F_ROWCOUNT = '@@rowcount' ;
+    F_SERVERNAME = '@@servername' ;
+    F_SERVICENAME = '@@servicename' ;
+    F_SPID = '@@spid' ;
+    F_TEXTSIZE = '@@textsize' ;
+    F_TIMETICKS = '@@timeticks' ;
+    F_TOTAL_ERRORS = '@@total_errors' ;
+    F_TOTAL_READ = '@@total_read' ;
+    F_TOTAL_WRITE = '@@total_write' ;
+    F_TRANCOUNT = '@@trancount' ;
+    F_VERSION = '@@version' ;
+}
+
 
 // starting rule
 statement
@@ -266,7 +513,8 @@ alias2
     
 tableColumns
     :
-    o:dbObject DOT_STAR
+    //o:
+    dbObject DOT_STAR
     ;
 
 column
@@ -473,271 +721,13 @@ unionOperator
     : UNION (ALL)?
     ;
     
-// LEXER *********************************************************************************
 
-class SqlLexer extends Lexer;
 
-options {
-    testLiterals = false;
-    k = 2;
-    caseSensitive = false;
-    caseSensitiveLiterals = false;
-    charVocabulary='\u0000'..'\uFFFE';
-}
-
-tokens {
-    ADD = "add" ;
-    ALL = "all" ;
-    ALTER = "alter" ;
-    AND = "and" ;
-    ANY = "any" ;
-    AS = "as" ;
-    ASC = "asc" ;
-    AUTHORIZATION = "authorization" ;
-    AUTO = "auto" ;
-    BACKUP = "backup" ;
-    BASE64 = "base64" ;
-    BEGIN = "begin" ;
-    BETWEEN = "between" ;
-    BINARY = "binary" ;
-    BREAK = "break" ;
-    BROWSE = "browse" ;
-    BULK = "bulk" ;
-    BY = "by" ;
-    CASCADE = "cascade" ;
-    CASE = "case" ;
-    CAST = "cast" ;
-    CHECK = "check" ;
-    CHECKPOINT = "checkpoint" ;
-    CLOSE = "close" ;
-    CLUSTERED = "clustered" ;
-    // COALESCE = "coalesce" ;
-    COLLATE = "collate" ;
-    COLUMN = "column" ;
-    COMMIT = "commit" ;
-    COMPUTE = "compute" ;
-    CONCAT = "concat" ;
-    CONSTRAINT = "constraint" ;
-    CONTAINS = "contains" ;
-    CONTAINSTABLE = "containstable" ;
-    CONTINUE = "continue" ;
-    // CONVERT = "convert" ;
-    CREATE = "create" ;
-    CROSS = "cross" ;
-    CUBE = "cube" ;
-    CURRENT = "current" ;
-    CURRENT_DATE = "current_date" ;
-    CURRENT_TIME = "current_time" ;
-    CURRENT_TIMESTAMP = "current_timestamp" ;
-    CURRENT_USER = "current_user" ;
-    CURSOR = "cursor" ;
-    DATABASE = "database" ;
-    DBCC = "dbcc" ;
-    DEALLOCATE = "deallocate" ;
-    DECLARE = "declare" ;
-    DEFAULT = "default" ;
-    DELETE = "delete" ;
-    DENY = "deny" ;
-    DESC = "desc" ;
-    DISK = "disk" ;
-    DISTINCT = "distinct" ;
-    DISTRIBUTED = "distributed" ;
-    DOUBLE = "double" ;
-    DROP = "drop" ;
-    // DUMMY = "dummy" ;
-    DUMP = "dump" ;
-    ELEMENTS = "elements" ;
-    ELSE = "else" ;
-    END = "end" ;
-    ERRLVL = "errlvl" ;
-    ESCAPE = "escape" ;
-    EXCEPT = "except" ;
-    EXEC = "exec" ;
-    EXECUTE = "execute" ;
-    EXISTS = "exists" ;
-    EXIT = "exit" ;
-    EXPAND = "expand" ;
-    EXPLICIT = "explicit" ;
-    FAST = "fast" ;
-    FASTFIRSTROW = "fastfirstrow" ;
-    FETCH = "fetch" ;
-    FILE = "file" ;
-    FILLFACTOR = "fillfactor" ;
-    FOR = "for" ;
-    FORCE = "force" ;
-    FOREIGN = "foreign" ;
-    FREETEXT = "freetext" ;
-    FREETEXTTABLE = "freetexttable" ;
-    FROM = "from" ;
-    FULL = "full" ;
-    FUNCTION = "function" ;
-    GOTO = "goto" ;
-    GRANT = "grant" ;
-    GROUP = "group" ;
-    HASH = "hash" ;
-    HAVING = "having" ;
-    HOLDLOCK = "holdlock" ;
-    IDENTITY = "identity" ;
-    IDENTITY_INSERT = "identity_insert" ;
-    IDENTITYCOL = "identitycol" ;
-    IF = "if" ;
-    IN = "in" ;
-    INDEX = "index" ;
-    INNER = "inner" ;
-    INSERT = "insert" ;
-    INTERSECT = "intersect" ;
-    INTO = "into" ;
-    IS = "is" ;
-    JOIN = "join" ;
-    KEEP = "keep" ;
-    KEEPFIXED = "keepfixed" ;
-    KEY = "key" ;
-    KILL = "kill" ;
-    LEFT = "left" ;
-    LIKE = "like" ;
-    LINENO = "lineno" ;
-    LOAD = "load" ;
-    LOOP = "loop" ;
-    MAXDOP = "maxdop" ;
-    MERGE = "merge" ;
-    NATIONAL = "national" ;
-    NOCHECK = "nocheck" ;
-    NOLOCK = "nolock" ;
-    NONCLUSTERED = "nonclustered" ;
-    NOT = "not" ;
-    NULL = "null" ;
-    // NULLIF = "nullif" ;
-    OF = "of" ;
-    OFF = "off" ;
-    OFFSETS = "offsets" ;
-    ON = "on" ;
-    OPEN = "open" ;
-    OPENDATASOURCE = "opendatasource" ;
-    OPENQUERY = "openquery" ;
-    OPENROWSET = "openrowset" ;
-    OPENXML = "openxml" ;
-    OPTION = "option" ;
-    OR = "or" ;
-    ORDER = "order" ;
-    OUTER = "outer" ;
-    OVER = "over" ;
-    PAGLOCK = "paglock" ;
-    PERCENT = "percent" ;
-    PLAN = "plan" ;
-    PRECISION = "precision" ;
-    PRIMARY = "primary" ;
-    PRINT = "print" ;
-    PROC = "proc" ;
-    PROCEDURE = "procedure" ;
-    PUBLIC = "public" ;
-    RAISERROR = "raiserror" ;
-    RAW = "raw" ;
-    READ = "read" ;
-    READCOMMITED = "readcommited" ;
-    READPAST = "readpast" ;
-    READTEXT = "readtext" ;
-    READUNCOMMITED = "readuncommited" ;
-    RECONFIGURE = "reconfigure" ;
-    REFERENCES = "references" ;
-    REMOTE = "remote" ;
-    REPEATABLEREAD = "repeatableread" ;
-    REPLICATION = "replication" ;
-    RESTORE = "restore" ;
-    RESTRICT = "restrict" ;
-    RETURN = "return" ;
-    REVOKE = "revoke" ;
-    RIGHT = "right" ;
-    ROBUST = "robust" ;
-    ROLLBACK = "rollback" ;
-    ROLLUP = "rollup" ;
-    ROWCOUNT = "rowcount" ;
-    ROWGUIDCOL = "rowguidcol" ;
-    ROWLOCK = "rowlock" ;
-    RULE = "rule" ;
-    SAVE = "save" ;
-    SCHEMA = "schema" ;
-    SELECT = "select" ;
-    SERIALIZABLE = "serializable" ;
-    SESSION_USER = "session_user" ;
-    SET = "set" ;
-    SETUSER = "setuser" ;
-    SHUTDOWN = "shutdown" ;
-    SOME = "some" ;
-    STATISTICS = "statistics" ;
-    SYSTEM_USER = "system_user" ;
-    TABLE = "table" ;
-    TABLOCK = "tablock" ;
-    TABLOCKX = "tablockx" ;
-    TEXTSIZE = "textsize" ;
-    THEN = "then" ;
-    TIES = "ties" ;
-    TO = "to" ;
-    TOP = "top" ;
-    TRAN = "tran" ;
-    TRANSACTION = "transaction" ;
-    TRIGGER = "trigger" ;
-    TRUNCATE = "truncate" ;
-    TSEQUAL = "tsequal" ;
-    UNION = "union" ;
-    UNIQUE = "unique" ;
-    UPDATE = "update" ;
-    UPDATETEXT = "updatetext" ;
-    UPDLOCK = "updlock" ;
-    USE = "use" ;
-    USER = "user" ;
-    VALUES = "values" ;
-    VARYING = "varying" ;
-    VIEW = "view" ;
-    VIEWS = "views" ;
-    WAITFOR = "waitfor" ;
-    WHEN = "when" ;
-    WHERE = "where" ;
-    WHILE = "while" ;
-    WITH = "with" ;
-    WRITETEXT = "writetext" ;
-    XLOCK = "xlock" ;
-    XML = "xml" ;
-    XMLDATA = "xmldata" ;
-    
-    // system variables
-    F_CONNECTIONS = "@@connections" ;
-    F_CPU_BUSY = "@@cpu_busy" ;
-    F_CURSOR_ROWS = "@@cursor_rows" ;
-    F_DATEFIRST = "@@datefirst" ;
-    F_DBTS = "@@dbts" ;
-    F_ERROR = "@@error" ;
-    F_FETCH_STATUS = "@@fetch_status" ;
-    F_IDENTITY = "@@identity" ;
-    F_IDLE = "@@idle" ;
-    F_IO_BUSY = "@@io_busy" ;
-    F_LANGID = "@@langid" ;
-    F_LANGUAGE = "@@language" ;
-    F_LOCK_TIMEOUT = "@@lock_timeout" ;
-    F_MAX_CONNECTIONS = "@@max_connections" ;
-    F_MAX_PRECISION = "@@max_precision" ;
-    F_NESTLEVEL = "@@nestlevel" ;
-    F_OPTIONS = "@@options" ;
-    F_PACK_RECEIVED = "@@pack_received" ;
-    F_PACK_SENT = "@@pack_sent" ;
-    F_PACKET_ERRORS = "@@packet_errors" ;
-    F_PROCID = "@@procid" ;
-    F_REMSERVER = "@@remserver" ;
-    F_ROWCOUNT = "@@rowcount" ;
-    F_SERVERNAME = "@@servername" ;
-    F_SERVICENAME = "@@servicename" ;
-    F_SPID = "@@spid" ;
-    F_TEXTSIZE = "@@textsize" ;
-    F_TIMETICKS = "@@timeticks" ;
-    F_TOTAL_ERRORS = "@@total_errors" ;
-    F_TOTAL_READ = "@@total_read" ;
-    F_TOTAL_WRITE = "@@total_write" ;
-    F_TRANCOUNT = "@@trancount" ;
-    F_VERSION = "@@version" ;
-}
 
 // Operators
 
-protected DOT:; // generated as a part of Number rule
+protected 
+DOT : '.' ; // generated as a part of Number rule
 COLON : ':' ;
 COMMA : ',' ;
 SEMICOLON : ';' ;
@@ -748,14 +738,14 @@ RPAREN : ')' ;
 //RSQUARE : ']' ;
 
 ASSIGNEQUAL : '=' ;
-NOTEQUAL1 : "<>" ;
-NOTEQUAL2 : "!=" ;
-LESSTHANOREQUALTO1 : "<=" ;
-LESSTHANOREQUALTO2 : "!>" ;
-LESSTHAN : "<" ;
-GREATERTHANOREQUALTO1 : ">=" ;
-GREATERTHANOREQUALTO2 : "!<" ;
-GREATERTHAN : ">" ;
+NOTEQUAL1 : '<>' ;
+NOTEQUAL2 : '!=' ;
+LESSTHANOREQUALTO1 : '<=' ;
+LESSTHANOREQUALTO2 : '!>' ;
+LESSTHAN : '<' ;
+GREATERTHANOREQUALTO1 : '>=' ;
+GREATERTHANOREQUALTO2 : '!<' ;
+GREATERTHAN : '>' ;
 
 DIVIDE : '/' ;
 PLUS : '+' ;
@@ -767,22 +757,22 @@ AMPERSAND : '&' ;
 TILDE : '~' ;
 BITWISEOR : '|' ;
 BITWISEXOR : '^' ;
-DOT_STAR : ".*" ;
+DOT_STAR : '.*' ;
 
 Whitespace
     : (' ' | '\t' | '\n' | '\r')
-    { _ttype = Token.SKIP; }
+    { $channel = HIDDEN; }
     ;
 
 // COMMENTS
 SingleLineComment
-    : "--"( ~('\r' | '\n') )*
-    { _ttype = Token.SKIP; }
+    : '--'( ~('\r' | '\n') )*
+    { $channel = HIDDEN; }
     ;
 
 MultiLineComment
-    : "/*" (~'*')* '*' ('*' | ( ~('*' | '/') (~'*')* '*') )* '/'
-    { _ttype = Token.SKIP; }
+    : '/*' (~'*')* '*' ('*' | ( ~('*' | '/') (~'*')* '*') )* '/'
+    { $channel = HIDDEN; }
     ;
 
 // LITERALS
@@ -798,22 +788,33 @@ Digit
     ;
 
 protected
-Integer :;
+Integer 
+    : (Digit)+
+    ;
 
 protected
-Real :;
+Real 
+    :
+    ( (Digit)+ ('.' | 'e') ) => (Digit)+ ( '.' (Digit)* (Exponent)? | Exponent)
+    ;
 
 protected
 Exponent
     : 'e' ( '+' | '-' )? (Digit)+
     ;
 
+protected
+HexLiteral // generated as a part of Number rule
+    : // "0x" ('0'..'9' | 'a'..'f')*
+    '0x' ('a'..'f' | Digit)*
+    ;
+
 Number
     :
-      ( (Digit)+ ('.' | 'e') ) => (Digit)+ ( '.' (Digit)* (Exponent)? | Exponent) { _ttype = Real; }
-    | '.' { _ttype = DOT; } ( (Digit)+ (Exponent)? { _ttype = Real; } )?
-    | (Digit)+ { _ttype = Integer; }
-    | "0x" ('a'..'f' | Digit)* { _ttype = HexLiteral; } // "0x" is valid hex literal
+      ( (Digit)+ ('.' | 'e') ) => (Digit)+ ( '.' (Digit)* (Exponent)? | Exponent) {  }
+    | '.' {  } ( (Digit)+ (Exponent)? {  } )?
+    | (Digit)+ {  }
+    | '0x' ('a'..'f' | Digit)* {  } // "0x" is valid hex literal
     ;
 
 protected
@@ -824,14 +825,14 @@ Currency
     ;
 
 ODBCDateTime
-    : '{' (Whitespace)? ("ts" | 't' | 'd') (Whitespace)?
+    : '{' (Whitespace)? ('ts' | 't' | 'd') (Whitespace)?
         ('n')? '\'' (~'\'')* '\'' ( '\'' (~'\'')* '\'' )* (Whitespace)? '}'
     ;
 
 NonQuotedIdentifier
-    options { testLiterals = true; }
+    //options { testLiterals = true; }
     :
-      (Currency) => Currency { _ttype = Currency; }
+      (Currency) => Currency {  }
     | ('a'..'z' | '_' | '#' | '\u0080'..'\ufffe') (Letter | Digit)* // first char other than '@'
     ;
 
@@ -845,7 +846,7 @@ QuotedIdentifier
     
 Variable
     // test for literals in case of a function begining with '@' (eg. "@@ERROR")
-    options { testLiterals = true; }
+    //options { testLiterals = true; }
     : '@' (Letter | Digit)+
     ;
     
@@ -859,9 +860,30 @@ UnicodeStringLiteral
     'n' '\'' (~'\'')* '\'' ( '\'' (~'\'')* '\'' )*
     ;
 
+fragment A:('a'|'A');
+fragment B:('b'|'B');
+fragment C:('c'|'C');
+fragment D:('d'|'D');
+fragment E:('e'|'E');
+fragment F:('f'|'F');
+fragment G:('g'|'G');
+fragment H:('h'|'H');
+fragment I:('i'|'I');
+fragment J:('j'|'J');
+fragment K:('k'|'K');
+fragment L:('l'|'L');
+fragment M:('m'|'M');
+fragment N:('n'|'N');
+fragment O:('o'|'O');
+fragment P:('p'|'P');
+fragment Q:('q'|'Q');
+fragment R:('r'|'R');
+fragment S:('s'|'S');
+fragment T:('t'|'T');
+fragment U:('u'|'U');
+fragment V:('v'|'V');
+fragment W:('w'|'W');
+fragment X:('x'|'X');
+fragment Y:('y'|'Y');
+fragment Z:('z'|'Z');
 // Numeric Constants
-
-protected
-HexLiteral // generated as a part of Number rule
-    : // "0x" ('0'..'9' | 'a'..'f')*
-    ;
